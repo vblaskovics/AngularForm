@@ -1,0 +1,41 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="ui form"
+    [class.error]="!myForm.valid && myForm.touched">
+
+    <div class="field">
+        <label for="username">username</label>
+        <input type="text" id="username" placeholder="Username" [formControl]="myForm.controls['username']">
+        <div *ngIf="myForm.controls['username'].touched && myForm.controls['username'].hasError('required')"
+            class="ui error message">Required</div>
+    </div>
+
+    <div class="field">
+        <label for="email">email</label>
+        <input type="text" id="email" placeholder="email" [formControl]="myForm.controls['email']">
+        <div *ngIf="myForm.controls['email'].touched && myForm.controls['email'].hasError('required')"
+            class="ui error message">Required</div>
+        <div *ngIf="myForm.controls['email'].touched && myForm.controls['email'].hasError('invalidEmail')"
+            class="ui error message">Invalid email</div>
+    </div>
+
+    <div class="field">
+        <label for="password">password</label>
+        <input type="text" id="password" placeholder="password" [formControl]="myForm.controls['password']">
+        <div *ngIf="myForm.controls['password'].touched && myForm.controls['password'].hasError('required')"
+            class="ui error message">Required</div>
+        <div *ngIf="myForm.controls['password'].touched && myForm.controls['password'].hasError('invalidPassword')"
+            class="ui error message">Password must contain at least 1 digit</div>
+    </div>
+
+    <div class="field">
+        <label for="passwordre">password again</label>
+        <input type="text" id="passwordre" placeholder="password" [formControl]="myForm.controls['passwordre']">
+        <div *ngIf="myForm.controls['passwordre'].touched && myForm.controls['passwordre'].hasError('required')"
+            class="ui error message">Required</div>
+        <div *ngIf="myForm.controls['passwordre'].touched && myForm.controls['passwordre'].hasError('invalidPassword')"
+            class="ui error message">Password must contain at least 1 digit</div>
+    </div>
+
+    <div *ngIf="passwordError" class="ui error message">Password and confirm password do not match.</div>
+
+    <button type="submit" class="ui button">Submit</button>
+</form>

@@ -36,6 +36,8 @@
     </div>
 
     <div *ngIf="passwordError" class="ui error message">Password and confirm password do not match.</div>
+    
+    <div *ngIf="!myForm.valid || passwordError" class="ui error message">Form is invalid</div>
 
     <button type="submit" class="ui button">Submit</button>
 </form>

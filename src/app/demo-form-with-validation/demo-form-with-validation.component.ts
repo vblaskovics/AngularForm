@@ -22,7 +22,7 @@ function skuValidator(control: FormControl): { [s: string]: boolean } {
 })
 export class DemoFormWithValidationComponent implements OnInit {
   myForm: FormGroup;
-  // sku: AbstractControl;
+  sku: AbstractControl;
   // sku2: AbstractControl;
 
   constructor(fb: FormBuilder) {
@@ -32,8 +32,16 @@ export class DemoFormWithValidationComponent implements OnInit {
       sku3: [''],
     });
 
-    // this.sku = this.myForm.controls['sku'];
+    this.sku = this.myForm.controls['sku'];
     // this.sku2 = this.myForm.controls['sku2'];
+
+    this.sku.valueChanges.subscribe((value:string) => {
+      console.log('sku changed:', value);
+    });
+
+    this.myForm.valueChanges.subscribe((formValue: any) => {
+      console.log('form changed:', formValue)
+    })
   }
 
   onSubmit(formValue: any): void {

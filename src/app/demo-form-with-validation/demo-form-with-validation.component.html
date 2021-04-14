@@ -2,11 +2,24 @@
     [class.error]="!myForm.valid && myForm.touched">
 
     <div class="field">
-        <label for="skuInput">SKU</label>
+        <label for="skuInput">SKU1</label>
         <input type="text" id="skuInput" placeholder="SKU" [formControl]="myForm.controls['sku']"
             [class.error]="!sku.valid && sku.touched">
-        <div *ngIf="!sku.valid" class="ui error message">SKU is invalid</div>
-        <div *ngIf="sku.hasError('required')" class="ui error message">SKU is required</div>
+        <div *ngIf="sku.touched && !sku.valid" class="ui error message">SKU is invalid</div>
+        <div *ngIf="sku.touched && sku.hasError('required')" class="ui error message">SKU is required</div>
+    </div>
+
+    <div class="field">
+        <label for="skuInput">SKU2</label>
+        <input type="text" id="skuInput" placeholder="SKU" [formControl]="myForm.controls['sku2']"
+            [class.error]="!sku2.valid && sku2.touched">
+        <div *ngIf="sku2.touched && !sku2.valid" class="ui error message">SKU is invalid</div>
+        <div *ngIf="sku2.touched && sku2.hasError('required')" class="ui error message">SKU is required</div>
+    </div>
+
+    <div class="field">
+        <label for="skuInput">SKU3</label>
+        <input type="text" id="skuInput" placeholder="SKU" [formControl]="myForm.controls['sku3']">
     </div>
 
     <button type="submit" class="ui button">Submit</button>

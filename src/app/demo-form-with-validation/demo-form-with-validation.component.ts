@@ -9,13 +9,16 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 export class DemoFormWithValidationComponent implements OnInit {
   myForm: FormGroup;
   sku: AbstractControl;
+  sku2: AbstractControl;
 
   constructor(fb: FormBuilder) { 
     this.myForm = fb.group({
-      'sku': ['', Validators.required ]
+      'sku': ['', Validators.required ],
+      'sku2': ['', Validators.required ]
     });
 
     this.sku = this.myForm.controls['sku'];
+    this.sku2 = this.myForm.controls['sku2'];
     
   }
 

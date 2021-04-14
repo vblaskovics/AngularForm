@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-demo-form-sku',
@@ -10,7 +11,7 @@ export class DemoFormSkuComponent implements OnInit {
   constructor() { }
 
   onSubmit(form: any) :void {
-    console.log('submitted values:', form);
+    console.log('submitted values:', form.value);
   }
 
   ngOnInit(): void {
